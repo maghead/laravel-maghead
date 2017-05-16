@@ -25,7 +25,8 @@
     "maghead/maghead": "4.0.x-dev",
     "corneltek/sqlbuilder": "4.0.x-dev",
     "corneltek/cliframework": "4.0.x-dev",
-    "corneltek/codegen": "3.1.x-dev"
+    "corneltek/codegen": "3.1.x-dev",
+    "illuminate/support": "^5.4"
   },
   "require-dev": {
     "mockery/mockery": "^0.9.9",

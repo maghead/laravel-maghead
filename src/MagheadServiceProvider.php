@@ -11,9 +11,7 @@ class MagheadServiceProvider extends ServiceProvider
     public function boot()
     {
         Bootstrap::setup(
-        ArrayConfigLoader::load(
-          $this->app['config']['maghead']
-        )
+
       );
     }
 
@@ -23,5 +21,11 @@ class MagheadServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__.'/../config/maghead.php', 'maghead');
+
+        $this->app->singleton('maghead.config', function ($app) {
+          return ArrayConfigLoader::load(
+            $app['config']['maghead']
+          );
+        });
     }
 }
