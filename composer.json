@@ -13,18 +13,12 @@
   "authors": [
     { "name": "Yo-An Lin", "email": "yoanlin93@gmail.com" }
   ],
-  "repositories":[{
-      "type": "path",
-      "url": "../maghead"
-  }, {
-      "type": "path",
-      "url": "../CLIFramework"
-  }],
   "require": {
     "php": ">=7.0",
     "maghead/maghead": "4.0.x-dev",
     "corneltek/sqlbuilder": "4.0.x-dev",
     "corneltek/cliframework": "4.0.x-dev",
+    "corneltek/codegen": "3.1.x-dev",
     "corneltek/codegen": "3.1.x-dev",
     "illuminate/support": "^5.4"
   },

@@ -81,7 +81,6 @@ class MagheadServiceProviderTest extends TestCase
         $serviceProvider->boot();
 
         $config = Bootstrap::getConfig();
-        var_dump($config);
         $this->assertSame($config['databases']['master']['dsn'], $magheadConfig['databases']['master']['dsn']);
         $this->assertSame($config['databases']['master']['user'], $magheadConfig['databases']['master']['user']);
         $this->assertSame($config['databases']['master']['password'], $magheadConfig['databases']['master']['password']);
