@@ -6,6 +6,7 @@ use Maghead\Runtime\Bootstrap;
 use Maghead\Console\Application;
 use Illuminate\Support\ServiceProvider;
 use Maghead\Runtime\Config\ArrayConfigLoader;
+use Maghead\Laravel\Console\Commands\UseCommand;
 use Maghead\Laravel\Console\Commands\InitCommand;
 
 class MagheadServiceProvider extends ServiceProvider
@@ -19,6 +20,7 @@ class MagheadServiceProvider extends ServiceProvider
 
             $this->commands([
                 InitCommand::class,
+                UseCommand::class,
             ]);
         }
     }
