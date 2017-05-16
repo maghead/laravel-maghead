@@ -3,8 +3,10 @@
 namespace Maghead\Laravel;
 
 use Maghead\Runtime\Bootstrap;
+use Maghead\Console\Application;
 use Illuminate\Support\ServiceProvider;
 use Maghead\Runtime\Config\ArrayConfigLoader;
+use Maghead\Laravel\Console\Commands\InitCommand;
 
 class MagheadServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,10 @@ class MagheadServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole() === true) {
             $this->publishes([__DIR__.'/../config/maghead.php' => config_path('maghead.php')], 'config');
+
+            $this->commands([
+                InitCommand::class,
+            ]);
         }
     }
 
@@ -28,6 +34,10 @@ class MagheadServiceProvider extends ServiceProvider
             return ArrayConfigLoader::load(
                 $app['config']['maghead']['instance']
             );
+        });
+
+        $this->app->singleton(Application::class, function () {
+            return new Application();
         });
     }
 }

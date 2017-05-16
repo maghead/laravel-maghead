@@ -5,6 +5,7 @@ namespace Maghead\Laravel\Tests;
 use Mockery as m;
 use Maghead\Runtime\Bootstrap;
 use PHPUnit\Framework\TestCase;
+use Maghead\Console\Application;
 use Maghead\Runtime\Config\Config;
 use Illuminate\Container\Container;
 use Maghead\Laravel\MagheadServiceProvider;
@@ -48,6 +49,10 @@ class MagheadServiceProviderTest extends TestCase
                     ],
                 ],
             ]) instanceof Config;
+        }));
+
+        $app->shouldReceive('singleton')->once()->with('Maghead\Console\Application', m::on(function ($closure) {
+            return $closure() instanceof Application;
         }));
 
         $serviceProvider->register();
