@@ -1,0 +1,19 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+
+before_script:
+- travis_retry composer install --prefer-source --no-interaction
+
+after_script:
+- wget https://scrutinizer-ci.com/ocular.phar
+- php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+
+sudo: false
+
+script: ./vendor/bin/phpunit --coverage-clover=coverage.clover
+
+matrix:
+  fast_finish: true
