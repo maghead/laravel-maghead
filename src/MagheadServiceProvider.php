@@ -11,6 +11,10 @@ class MagheadServiceProvider extends ServiceProvider
     public function boot()
     {
         Bootstrap::setup($this->app['maghead.config']);
+
+        if ($this->app->runningInConsole() === true) {
+            $this->publishes([__DIR__.'/../config/maghead.php' => config_path('maghead.php')], 'config');
+        }
     }
 
     /**

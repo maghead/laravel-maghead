@@ -6,11 +6,22 @@ use Mockery as m;
 use Maghead\Runtime\Bootstrap;
 use PHPUnit\Framework\TestCase;
 use Maghead\Runtime\Config\Config;
+use Illuminate\Container\Container;
 use Maghead\Laravel\MagheadServiceProvider;
 use Maghead\Runtime\Config\ArrayConfigLoader;
 
 class MagheadServiceProviderTest extends TestCase
 {
+    protected function setUp()
+    {
+        parent::setUp();
+        $container = new Container;
+        $container->bind('path.config', function () {
+            return __DIR__;
+        });
+        Container::setInstance($container);
+    }
+
     protected function tearDown()
     {
         parent::tearDown();
@@ -56,6 +67,8 @@ class MagheadServiceProviderTest extends TestCase
                 ],
             ])
         );
+
+        $app->shouldReceive('runningInConsole')->once()->andReturn(true);
 
         $serviceProvider->boot();
 
