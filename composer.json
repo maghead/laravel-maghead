@@ -13,6 +13,13 @@
   "authors": [
     { "name": "Yo-An Lin", "email": "yoanlin93@gmail.com" }
   ],
+  "repositories":[{
+      "type": "path",
+      "url": "../maghead"
+  }, {
+      "type": "path",
+      "url": "../CLIFramework"
+  }],
   "require": {
     "php": ">=7.0",
     "maghead/maghead": "4.0.x-dev",
@@ -21,6 +28,8 @@
     "corneltek/codegen": "3.1.x-dev"
   },
   "require-dev": {
+    "mockery/mockery": "^0.9.9",
+    "nesbot/carbon": "^1.22",
     "phpunit/phpunit": "^6.0"
   },
   "autoload": {
@@ -31,6 +40,9 @@
   },
   "autoload-dev": {
     "classmap": [
-    ]
+    ],
+    "psr-4": {
+      "Maghead\\Laravel\\Tests\\": "tests"
+    }
   }
 }
