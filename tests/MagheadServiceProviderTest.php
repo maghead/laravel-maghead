@@ -44,7 +44,7 @@ class MagheadServiceProviderTest extends TestCase
             return $closure([
                 'config' => [
                     'maghead' => [
-                        'instance' => []
+                        'instance' => [],
                     ],
                 ],
             ]) instanceof Config;
@@ -65,6 +65,7 @@ class MagheadServiceProviderTest extends TestCase
                     'master' => [
                         'dsn' => 'mysql:host=localhost;dbname=testing',
                         'user' => 'root',
+                        'password' => 'root',
                     ],
                 ],
             ])
@@ -75,7 +76,9 @@ class MagheadServiceProviderTest extends TestCase
         $serviceProvider->boot();
 
         $config = Bootstrap::getConfig();
+        var_dump($config);
         $this->assertSame($config['databases']['master']['dsn'], $magheadConfig['databases']['master']['dsn']);
         $this->assertSame($config['databases']['master']['user'], $magheadConfig['databases']['master']['user']);
+        $this->assertSame($config['databases']['master']['password'], $magheadConfig['databases']['master']['password']);
     }
 }
