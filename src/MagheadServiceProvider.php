@@ -32,7 +32,7 @@ class MagheadServiceProvider extends ServiceProvider
 
         $this->app->singleton('maghead.config', function ($app) {
             return ArrayConfigLoader::load(
-                $app['config']['maghead']['instance']
+                $app['config']['maghead']
             );
         });
 

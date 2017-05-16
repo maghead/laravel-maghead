@@ -9,7 +9,7 @@ return [
         'base_model' => \Maghead\Runtime\Model::class,
         'base_collection' => \Maghead\Runtime\Collection::class,
         'paths' => [
-            'tests',
+            'app/Model',
         ],
     ],
     'instance' => [
@@ -17,22 +17,22 @@ return [
             'dsn' => 'mysql:host=localhost',
             'user' => 'root',
         ],
-        'databases' => [
-            'master' => [
-                'dsn' => 'sqlite::memory:',
-                'query_options' => [
-                    'quote_column' => true,
-                    'quote_table' => true,
-                ],
+    ],
+    'databases' => [
+        'master' => [
+            'dsn' => 'sqlite::memory:',
+            'query_options' => [
+                'quote_column' => true,
+                'quote_table' => true,
             ],
-            'mysql' => [
-                'dsn' => 'mysql:host=localhost;dbname=testing',
-                'user' => 'root',
-            ],
-            'pgsql' => [
-                'dsn' => 'pgsql:host=localhost;dbname=testing',
-                'user' => 'postgres',
-            ],
+        ],
+        'mysql' => [
+            'dsn' => 'mysql:host=localhost;dbname=testing',
+            'user' => 'root',
+        ],
+        'pgsql' => [
+            'dsn' => 'pgsql:host=localhost;dbname=testing',
+            'user' => 'postgres',
         ],
     ],
 ];
