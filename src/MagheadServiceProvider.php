@@ -8,6 +8,11 @@ use Maghead\Runtime\Config\ArrayConfigLoader;
 
 class MagheadServiceProvider extends ServiceProvider
 {
+    public function boot()
+    {
+        Bootstrap::setup($this->app['maghead.config']);
+    }
+
     /**
      * Register the service provider.
      */
@@ -17,8 +22,8 @@ class MagheadServiceProvider extends ServiceProvider
 
         $this->app->singleton('maghead.config', function ($app) {
             return ArrayConfigLoader::load(
-            $app['config']['maghead']
-          );
+                $app['config']['maghead']
+            );
         });
     }
 }
