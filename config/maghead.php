@@ -2,12 +2,12 @@
 
 return [
     'cli' => [
-      'bootstrap' => 'tests/bootstrap.php',
+        'bootstrap' => 'tests/bootstrap.php',
     ],
     'schema' => [
         'auto_id' => true,
-        'base_model' => \Maghead\Runtime\BaseModel::class,
-        'base_collection' => \Maghead\Runtime\BaseCollection::class,
+        'base_model' => \Maghead\Runtime\Model::class,
+        'base_collection' => \Maghead\Runtime\Collection::class,
         'paths' => [
             'tests',
         ],

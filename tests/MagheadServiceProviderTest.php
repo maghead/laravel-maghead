@@ -43,7 +43,9 @@ class MagheadServiceProviderTest extends TestCase
         $app->shouldReceive('singleton')->once()->with('maghead.config', m::on(function ($closure) {
             return $closure([
                 'config' => [
-                    'maghead' => [],
+                    'maghead' => [
+                        'instance' => []
+                    ],
                 ],
             ]) instanceof Config;
         }));
