@@ -2,8 +2,9 @@
 
 namespace Maghead\Laravel\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Mockery as m;
+use Maghead\Runtime\Bootstrap;
+use PHPUnit\Framework\TestCase;
 use Maghead\Laravel\MagheadServiceProvider;
 
 class MagheadServiceProviderTest extends TestCase
@@ -14,12 +15,35 @@ class MagheadServiceProviderTest extends TestCase
         m::close();
     }
 
-    public function testRegister()
+    public function testBoot()
     {
         $serviceProvider = new MagheadServiceProvider(
-          $app = m::mock('Illuminate\Contracts\Foundation\Application, ArrayAccess')
+          $app = [
+            'config' => [
+              'maghead' => [
+                'databases' => [
+                   'master' => [
+                       'dsn' => 'mysql:host=localhost;dbname=testing',
+                       'user' => 'root',
+                   ],
+               ],
+              ],
+            ],
+          ]
         );
 
-        $serviceProvider->register();
+        $serviceProvider->boot();
+
+        $config = Bootstrap::getConfig()->getArrayCopy();
+
+        $this->assertSame(
+          $config['databases']['master']['dsn'],
+          $app['config']['maghead']['databases']['master']['dsn']
+        );
+
+        $this->assertSame(
+          $config['databases']['master']['user'],
+          $app['config']['maghead']['databases']['master']['user']
+        );
     }
 }
