@@ -3,8 +3,8 @@
 namespace Maghead\Laravel;
 
 use Maghead\Runtime\Bootstrap;
-use Maghead\Console\Application;
 use Illuminate\Support\ServiceProvider;
+use Maghead\Laravel\Console\Application;
 use Maghead\Runtime\Config\ArrayConfigLoader;
 use Maghead\Laravel\Console\Commands\UseCommand;
 use Maghead\Laravel\Console\Commands\InitCommand;
@@ -38,8 +38,8 @@ class MagheadServiceProvider extends ServiceProvider
             );
         });
 
-        $this->app->singleton(Application::class, function () {
-            return new Application();
+        $this->app->singleton(Application::class, function ($app) {
+            return new Application(null, null, $app['maghead.config']);
         });
     }
 }

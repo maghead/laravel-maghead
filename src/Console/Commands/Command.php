@@ -2,7 +2,7 @@
 
 namespace Maghead\Laravel\Console\Commands;
 
-use Maghead\Console\Application;
+use Maghead\Laravel\Console\Application;
 use Illuminate\Console\Command as BaseCommand;
 
 abstract class Command extends BaseCommand

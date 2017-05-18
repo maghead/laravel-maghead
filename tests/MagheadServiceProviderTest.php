@@ -5,9 +5,9 @@ namespace Maghead\Laravel\Tests;
 use Mockery as m;
 use Maghead\Runtime\Bootstrap;
 use PHPUnit\Framework\TestCase;
-use Maghead\Console\Application;
 use Maghead\Runtime\Config\Config;
 use Illuminate\Container\Container;
+use Maghead\Laravel\Console\Application;
 use Maghead\Laravel\MagheadServiceProvider;
 use Maghead\Runtime\Config\ArrayConfigLoader;
 
@@ -16,11 +16,13 @@ class MagheadServiceProviderTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $container = new Container;
-        $container->bind('path.config', function () {
-            return __DIR__;
-        });
-        Container::setInstance($container);
+        if (class_exists(Container::class) === true) {
+            $container = new Container;
+            $container->bind('path.config', function () {
+                return __DIR__;
+            });
+            Container::setInstance($container);
+        }
     }
 
     protected function tearDown()
@@ -51,11 +53,13 @@ class MagheadServiceProviderTest extends TestCase
             ]) instanceof Config;
         }));
 
-        $app->shouldReceive('singleton')->once()->with('Maghead\Console\Application', m::on(function ($closure) {
-            return $closure() instanceof Application;
+        $app->shouldReceive('singleton')->once()->with('Maghead\Laravel\Console\Application', m::on(function ($closure) {
+            return $closure([
+                'maghead.config' => m::mock('Maghead\Runtime\Config\Config'),
+            ]) instanceof Application;
         }));
 
-        $serviceProvider->register();
+        $this->assertNull($serviceProvider->register());
     }
 
     public function testBoot()
