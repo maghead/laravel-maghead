@@ -17,10 +17,11 @@ class MagheadServiceProviderTest extends TestCase
     {
         parent::setUp();
         if (class_exists(Container::class) === true) {
-            $container = new Container;
-            $container->bind('path.config', function () {
-                return __DIR__;
-            });
+            $container = m::mock(new Container);
+            $container->instance('path', __DIR__);
+            $container->instance('path.config', __DIR__);
+            $container->shouldReceive('basePath')->andReturn(__DIR__);
+            $container->shouldReceive('databasePath')->andReturn(__DIR__);
             Container::setInstance($container);
         }
     }
