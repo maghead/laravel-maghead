@@ -42,6 +42,24 @@ class MagheadCommand extends Command
         $this->maghead();
     }
 
+
+    /**
+     * maghead.
+     *
+     * @param string $cmd
+     */
+    protected function maghead($cmd = null)
+    {
+        $command = $this->argument('command');
+        $argv = is_string($command) === true ? explode(' ', $command) : $command;
+        $argv = array_filter(array_merge(['artisan maghead:'.$cmd, $cmd], $argv));
+        if (isset($argv[1]) && $argv[1] == '-d') {
+            $ret = $this->app->run($argv);
+        } else {
+            $ret = $this->app->runWithTry($argv);
+        }
+    }
+
     /**
      * change to array input.
      *
@@ -62,23 +80,6 @@ class MagheadCommand extends Command
         ]);
 
         return parent::run($input, $output);
-    }
-
-    /**
-     * maghead.
-     *
-     * @param string $cmd
-     */
-    protected function maghead($cmd = null)
-    {
-        $command = $this->argument('command');
-        $argv = is_string($command) === true ? explode(' ', $command) : $command;
-        $argv = array_filter(array_merge(['artisan maghead:'.$cmd, $cmd], $argv));
-        if (isset($argv[1]) && $argv[1] == '-d') {
-            $ret = $this->app->run($argv);
-        } else {
-            $ret = $this->app->runWithTry($argv);
-        }
     }
 
     /**
