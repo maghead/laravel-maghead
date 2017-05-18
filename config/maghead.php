@@ -21,7 +21,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'connection_options' => []
+            'connection_options' => [],
         ],
     ],
     'databases' => [
@@ -33,7 +33,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'connection_options' => []
+            'connection_options' => [],
         ],
         'mysql' => [
             'driver' => 'mysql',
@@ -43,7 +43,7 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
-            'connection_options' => []
+            'connection_options' => [],
         ],
         'pgsql' => [
             'driver' => 'pgsql',
@@ -54,7 +54,7 @@ return [
             'password' => env('DB_PASSWORD', ''),
             'schema' => 'public',
             'sslmode' => 'prefer',
-            'connection_options' => []
+            'connection_options' => [],
         ],
         'sqlite' => [
             'driver' => 'sqlite',
@@ -62,7 +62,7 @@ return [
             'query_options' => [
                 'quote_column' => true,
                 'quote_table' => true,
-            ]
+            ],
         ],
     ],
 ];
