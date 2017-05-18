@@ -19,11 +19,22 @@ class Application extends BaseApplication
     {
         parent::__construct($container, $parent);
         $this->config = $config;
+        $this->loader->addNamespace('Maghead\Console\Command');
+    }
+
+    public function options($opts)
+    {
+        if (is_null($this->config) === false) {
+            return;
+        }
+
+        $opts->add('c|config:','the path to the config file')
+            ->isa('file');
     }
 
     public function loadConfig()
     {
-        if ($this->config === null) {
+        if (is_null($this->config) === true) {
             return parent::loadConfig();
         }
 

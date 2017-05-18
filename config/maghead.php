@@ -2,7 +2,7 @@
 
 return [
     'cli' => [
-        'bootstrap' => 'tests/bootstrap.php',
+        'bootstrap' => 'bootstrap/autoload.php',
     ],
     'schema' => [
         'auto_id' => true,
