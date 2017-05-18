@@ -38,7 +38,6 @@ if (function_exists('base_path') === false) {
     }
 }
 
-
 if (function_exists('app_path') === false) {
     function app_path()
     {

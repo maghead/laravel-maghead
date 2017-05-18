@@ -18,7 +18,7 @@ class MagheadServiceProvider extends ServiceProvider
             $this->publishes([__DIR__.'/../config/maghead.php' => config_path('maghead.php')], 'config');
 
             $this->commands([
-                MagheadCommand::class
+                MagheadCommand::class,
             ]);
         }
     }

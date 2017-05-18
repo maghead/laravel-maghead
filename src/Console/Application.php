@@ -28,7 +28,7 @@ class Application extends BaseApplication
             return;
         }
 
-        $opts->add('c|config:','the path to the config file')
+        $opts->add('c|config:', 'the path to the config file')
             ->isa('file');
     }
 

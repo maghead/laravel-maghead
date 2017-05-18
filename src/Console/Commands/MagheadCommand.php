@@ -2,8 +2,8 @@
 
 namespace Maghead\Laravel\Console\Commands;
 
-use Maghead\Laravel\Console\Application;
 use Illuminate\Console\Command;
+use Maghead\Laravel\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -71,8 +71,7 @@ class MagheadCommand extends Command
         $input = new ArrayInput([
             'command' => implode(' ', $command),
         ]);
+
         return parent::run($input, $output);
     }
-
-
 }
