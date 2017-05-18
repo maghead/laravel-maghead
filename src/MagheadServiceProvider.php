@@ -6,7 +6,19 @@ use Maghead\Runtime\Bootstrap;
 use Illuminate\Support\ServiceProvider;
 use Maghead\Laravel\Console\Application;
 use Maghead\Runtime\Config\ArrayConfigLoader;
+use Maghead\Laravel\Console\Commands\DbCommand;
+use Maghead\Laravel\Console\Commands\SqlCommand;
+use Maghead\Laravel\Console\Commands\DiffCommand;
+use Maghead\Laravel\Console\Commands\InitCommand;
+use Maghead\Laravel\Console\Commands\MetaCommand;
+use Maghead\Laravel\Console\Commands\SeedCommand;
+use Maghead\Laravel\Console\Commands\IndexCommand;
+use Maghead\Laravel\Console\Commands\ShardCommand;
+use Maghead\Laravel\Console\Commands\TableCommand;
+use Maghead\Laravel\Console\Commands\SchemaCommand;
 use Maghead\Laravel\Console\Commands\MagheadCommand;
+use Maghead\Laravel\Console\Commands\MigrateCommand;
+use Maghead\Laravel\Console\Commands\VersionCommand;
 
 class MagheadServiceProvider extends ServiceProvider
 {
@@ -18,6 +30,18 @@ class MagheadServiceProvider extends ServiceProvider
             $this->publishes([__DIR__.'/../config/maghead.php' => config_path('maghead.php')], 'config');
 
             $this->commands([
+                InitCommand::class,
+                DbCommand::class,
+                SchemaCommand::class,
+                SqlCommand::class,
+                SeedCommand::class,
+                DiffCommand::class,
+                MigrateCommand::class,
+                MetaCommand::class,
+                VersionCommand::class,
+                TableCommand::class,
+                ShardCommand::class,
+                IndexCommand::class,
                 MagheadCommand::class,
             ]);
         }

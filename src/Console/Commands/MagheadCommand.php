@@ -13,7 +13,7 @@ class MagheadCommand extends Command
     /**
      * @var string
      */
-    protected $name = 'maghead';
+    protected $signature = 'maghead';
 
     /**
      * @var string
@@ -36,21 +36,9 @@ class MagheadCommand extends Command
         $this->app = $app;
     }
 
-    /**
-     * maghead.
-     *
-     * @param mixed $argv
-     */
     public function fire()
     {
-        $command = $this->argument('command') ?: 'help';
-        $argv = is_string($command) === true ? explode(' ', $command) : $command;
-        $argv = array_merge(['artisan maghead'], $argv);
-        if (isset($argv[1]) && $argv[1] == '-d') {
-            $ret = $this->app->run($argv);
-        } else {
-            $ret = $this->app->runWithTry($argv);
-        }
+        $this->maghead();
     }
 
     /**
@@ -73,5 +61,22 @@ class MagheadCommand extends Command
         ]);
 
         return parent::run($input, $output);
+    }
+
+    /**
+     * maghead.
+     *
+     * @param string $cmd
+     */
+    protected function maghead($cmd = null)
+    {
+        $command = $this->argument('command');
+        $argv = is_string($command) === true ? explode(' ', $command) : $command;
+        $argv = array_filter(array_merge(['artisan maghead:'.$cmd, $cmd], $argv));
+        if (isset($argv[1]) && $argv[1] == '-d') {
+            $ret = $this->app->run($argv);
+        } else {
+            $ret = $this->app->runWithTry($argv);
+        }
     }
 }
