@@ -38,8 +38,8 @@ class Application extends BaseApplication
             return parent::loadConfig();
         }
 
-        $this->dataSourceManager = DataSourceManager::getInstance();
         Bootstrap::setupForCLI($this->config);
+        $this->dataSourceManager = DataSourceManager::getInstance();
 
         return $this->config;
     }

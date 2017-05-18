@@ -30,19 +30,19 @@ class MagheadServiceProvider extends ServiceProvider
             $this->publishes([__DIR__.'/../config/maghead.php' => config_path('maghead.php')], 'config');
 
             $this->commands([
-                InitCommand::class,
                 DbCommand::class,
-                SchemaCommand::class,
-                SqlCommand::class,
-                SeedCommand::class,
                 DiffCommand::class,
-                MigrateCommand::class,
-                MetaCommand::class,
-                VersionCommand::class,
-                TableCommand::class,
-                ShardCommand::class,
                 IndexCommand::class,
+                InitCommand::class,
                 MagheadCommand::class,
+                MetaCommand::class,
+                MigrateCommand::class,
+                SchemaCommand::class,
+                SeedCommand::class,
+                ShardCommand::class,
+                SqlCommand::class,
+                TableCommand::class,
+                VersionCommand::class,
             ]);
         }
     }
