@@ -12,6 +12,7 @@
   ],
   "authors": [
     { "name": "Yo-An Lin", "email": "yoanlin93@gmail.com" }
+    { "name": "Recca Tsai", "email": "recca0120@gmail.com" }
   ],
   "require": {
     "php": ">=7.0",
