@@ -7,7 +7,7 @@ class ShardCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:shard';
+    protected $name = 'maghead:shard';
 
     /**
      * fire.

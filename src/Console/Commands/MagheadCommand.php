@@ -5,6 +5,7 @@ namespace Maghead\Laravel\Console\Commands;
 use Illuminate\Console\Command;
 use Maghead\Laravel\Console\Application;
 use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -13,7 +14,7 @@ class MagheadCommand extends Command
     /**
      * @var string
      */
-    protected $signature = 'maghead';
+    protected $name = 'maghead';
 
     /**
      * @var string
@@ -78,5 +79,17 @@ class MagheadCommand extends Command
         } else {
             $ret = $this->app->runWithTry($argv);
         }
+    }
+
+    /**
+     * Get the console command options.
+     *
+     * @return array
+     */
+    protected function getOptions()
+    {
+        return [
+            ['command', null, InputOption::VALUE_OPTIONAL],
+        ];
     }
 }

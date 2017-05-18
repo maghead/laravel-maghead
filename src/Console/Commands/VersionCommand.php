@@ -7,7 +7,7 @@ class VersionCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:version';
+    protected $name = 'maghead:version';
 
     /**
      * fire.

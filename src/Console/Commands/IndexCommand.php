@@ -7,7 +7,7 @@ class IndexCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:index';
+    protected $name = 'maghead:index';
 
     /**
      * fire.

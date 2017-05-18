@@ -7,7 +7,7 @@ class MigrateCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:migrate';
+    protected $name = 'maghead:migrate';
 
     /**
      * fire.

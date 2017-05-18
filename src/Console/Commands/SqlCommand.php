@@ -7,7 +7,7 @@ class SqlCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:sql';
+    protected $name = 'maghead:sql';
 
     /**
      * fire.

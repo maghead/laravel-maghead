@@ -7,7 +7,7 @@ class DbCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:db';
+    protected $name = 'maghead:db';
 
     /**
      * fire.

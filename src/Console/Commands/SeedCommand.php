@@ -7,7 +7,7 @@ class SeedCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:seed';
+    protected $name = 'maghead:seed';
 
     /**
      * fire.

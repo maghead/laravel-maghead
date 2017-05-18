@@ -7,7 +7,7 @@ class MetaCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:meta';
+    protected $name = 'maghead:meta';
 
     /**
      * fire.

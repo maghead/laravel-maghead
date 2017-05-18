@@ -7,7 +7,7 @@ class SchemaCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:schema';
+    protected $name = 'maghead:schema';
 
     /**
      * fire.

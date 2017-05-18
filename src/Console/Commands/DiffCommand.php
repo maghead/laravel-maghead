@@ -7,7 +7,7 @@ class DiffCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:diff';
+    protected $name = 'maghead:diff';
 
     /**
      * fire.

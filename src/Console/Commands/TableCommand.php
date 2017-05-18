@@ -7,7 +7,7 @@ class TableCommand extends MagheadCommand
     /**
      * @var string
      */
-    protected $signature = 'maghead:table';
+    protected $name = 'maghead:table';
 
     /**
      * fire.
