@@ -16,10 +16,11 @@
   ],
   "require": {
     "php": ">=7.0",
-    "maghead/maghead": "@dev",
-    "corneltek/sqlbuilder": "@dev",
-    "corneltek/cliframework": "@dev",
-    "corneltek/codegen": "@dev",
+    "maghead/maghead": "4.0.x-dev",
+    "maghead/magsql": "4.0.x-dev",
+    "corneltek/sqlbuilder": "4.0.x-dev",
+    "corneltek/cliframework": "4.0.x-dev",
+    "corneltek/codegen": "4.0.x-dev",
     "illuminate/support": "^5.4",
     "illuminate/console": "^5.4"
   },
