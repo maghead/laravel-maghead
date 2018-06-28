@@ -1,45 +1,45 @@
 {
-  "name": "maghead/laravel-bridge",
-  "description": "A Maghead ORM bridge for Laravel 5",
-  "license": "MIT",
-  "keywords": [
-    "doctrine",
-    "maghead",
-    "laravel",
-    "orm",
-    "data mapper",
-    "database"
-  ],
-  "authors": [
-    { "name": "Yo-An Lin", "email": "yoanlin93@gmail.com" },
-    { "name": "Recca Tsai", "email": "recca0120@gmail.com" }
-  ],
-  "require": {
-    "php": ">=7.0",
-    "maghead/maghead": "4.0.x-dev",
-    "maghead/magsql": "4.0.x-dev",
-    "corneltek/sqlbuilder": "4.0.x-dev",
-    "corneltek/cliframework": "4.0.x-dev",
-    "corneltek/codegen": "4.0.x-dev",
-    "illuminate/support": "^5.4",
-    "illuminate/console": "^5.4"
-  },
-  "require-dev": {
-    "mockery/mockery": "^0.9.9",
-    "nesbot/carbon": "^1.22",
-    "phpunit/phpunit": "^6.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Maghead\\Laravel\\": "src/"
-    },
-    "files": [ ]
-  },
-  "autoload-dev": {
-    "classmap": [
+    "name": "maghead/laravel-bridge",
+    "description": "A Maghead ORM bridge for Laravel 5",
+    "license": "MIT",
+    "keywords": [
+        "doctrine",
+        "maghead",
+        "laravel",
+        "orm",
+        "data mapper",
+        "database"
     ],
-    "psr-4": {
-      "Maghead\\Laravel\\Tests\\": "tests"
-    }
-  }
+    "authors": [
+        { "name": "Yo-An Lin", "email": "yoanlin93@gmail.com" },
+        { "name": "Recca Tsai", "email": "recca0120@gmail.com" }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "illuminate/console": "^5.4",
+        "illuminate/support": "^5.4",
+        "maghead/maghead": "^4.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.9",
+        "nesbot/carbon": "^1.22",
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maghead\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maghead\\Laravel\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
