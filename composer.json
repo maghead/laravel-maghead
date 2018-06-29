@@ -41,5 +41,12 @@
         "optimize-autoloader": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Maghead\\Laravel\\MagheadServiceProvider::class"
+            ]
+        }
+    }
 }
